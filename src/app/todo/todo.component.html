@@ -1,0 +1,13 @@
+<div class="todo">
+  <h2>To-Do sencillo</h2>
+  <div class="input-row">
+    <input [(ngModel)]="newTask" placeholder="Nueva tarea" />
+    <button (click)="add()">Agregar</button>
+  </div>
+
+  <ul>
+    <li *ngFor="let t of tasks; index as i">
+      {{ t }} <button (click)="remove(i)">Eliminar</button>
+    </li>
+  </ul>
+</div>
