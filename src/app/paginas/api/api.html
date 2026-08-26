@@ -1,0 +1,13 @@
+<section class="personajes">
+	<h1>Personajes</h1>
+
+	<div class="lista-personajes">
+		@for (personaje of personajes; track personaje.id) {
+			<article class="personaje">
+				<h2>{{ personaje.name }}</h2>
+				<img [src]="personaje.image" alt="Imagen de {{ personaje.name }}">
+				<button type="button" (click)="eliminarPersonaje(personaje.id)">Borrar</button>
+			</article>
+		}
+	</div>
+</section>
