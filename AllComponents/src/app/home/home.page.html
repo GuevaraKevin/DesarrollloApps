@@ -1,0 +1,29 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>AllComponents</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <main class="contenedor">
+    <section class="introduccion">
+      <p class="etiqueta">Catálogo interactivo</p>
+      <h1>Componentes Ionic</h1>
+      <p>Ionic es un framework para crear interfaces móviles y web con componentes listos para usar. Explora cada ejemplo y descubre cómo funciona.</p>
+    </section>
+
+    <ion-list>
+      @for (componente of componentes; track componente.ruta) {
+        <ion-item lines="full">
+          <ion-label>
+            <h2>{{ componente.nombre }}</h2>
+            <p>Ver descripción y ejemplo</p>
+          </ion-label>
+          <ion-button slot="end" [routerLink]="componente.ruta" fill="clear" [attr.aria-label]="'Abrir ' + componente.nombre">
+            <ion-icon slot="icon-only" name="arrow-forward-outline"></ion-icon>
+          </ion-button>
+        </ion-item>
+      }
+    </ion-list>
+  </main>
+</ion-content>
