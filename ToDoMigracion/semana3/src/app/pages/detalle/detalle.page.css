@@ -1,0 +1,12 @@
+:host {
+  display: block;
+}
+
+.detail-card {
+  max-width: 640px;
+  margin: 2rem auto;
+}
+
+.actions {
+  margin-top: 1rem;
+}

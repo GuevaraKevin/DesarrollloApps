@@ -1,0 +1,28 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/tareas"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Detalle de tarea</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  @if (task) {
+    <ion-card class="detail-card">
+      <ion-card-header>
+        <ion-card-title>{{ task.title }}</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <ion-item lines="none">
+          <ion-checkbox slot="start" [checked]="task.completed" (ionChange)="toggleTask()"></ion-checkbox>
+          <ion-label>{{ task.completed ? 'Tarea completada' : 'Tarea pendiente' }}</ion-label>
+        </ion-item>
+        <div class="actions">
+          <ion-button expand="block" (click)="editTask()">Editar tarea</ion-button>
+          <ion-button expand="block" color="danger" fill="outline" (click)="deleteTask()">Eliminar tarea</ion-button>
+        </div>
+      </ion-card-content>
+    </ion-card>
+  }
+</ion-content>

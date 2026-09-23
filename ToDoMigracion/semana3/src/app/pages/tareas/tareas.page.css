@@ -1,0 +1,36 @@
+:host {
+  display: block;
+}
+
+.task-form {
+  max-width: 640px;
+  margin: 1.25rem auto;
+  padding: 0 1rem;
+}
+
+.task-form ion-button {
+  margin-top: 1rem;
+}
+
+ion-list {
+  max-width: 760px;
+  margin: 1rem auto;
+}
+
+.completed {
+  color: var(--ion-color-medium);
+  text-decoration: line-through;
+}
+
+.empty-state {
+  color: var(--ion-color-medium-shade);
+  text-align: center;
+  padding: 2rem 1rem;
+}
+
+@media (max-width: 560px) {
+  ion-item ion-button {
+    font-size: 0.75rem;
+    margin-inline: 0;
+  }
+}

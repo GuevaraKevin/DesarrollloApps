@@ -1,0 +1,35 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>Mis tareas</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <form class="task-form" (ngSubmit)="addTask()">
+    <ion-input
+      name="newTask"
+      [(ngModel)]="newTask"
+      label="Nueva tarea"
+      label-placement="floating"
+      fill="outline"
+      placeholder="Escribe un pendiente"
+      required>
+    </ion-input>
+    <ion-button type="submit" expand="block" [disabled]="!newTask.trim()">Agregar tarea</ion-button>
+  </form>
+
+  @if (taskService.tasks().length > 0) {
+    <ion-list inset="true">
+      @for (task of taskService.tasks(); track task.id) {
+        <ion-item>
+          <ion-checkbox slot="start" [checked]="task.completed" (ionChange)="toggleTask(task)"></ion-checkbox>
+          <ion-label [class.completed]="task.completed">{{ task.title }}</ion-label>
+          <ion-button slot="end" fill="clear" color="danger" (click)="confirmDelete(task)">Eliminar</ion-button>
+          <ion-button slot="end" fill="clear" [routerLink]="['/detalle', task.id]">Editar</ion-button>
+        </ion-item>
+      }
+    </ion-list>
+  } @else {
+    <p class="empty-state">Todavía no tienes tareas. Agrega la primera.</p>
+  }
+</ion-content>

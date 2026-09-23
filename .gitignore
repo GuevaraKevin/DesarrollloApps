@@ -1,0 +1,12 @@
+node_modules/
+dist/
+.angular/
+
+.vscode/*.log
+.vscode/*.tmp
+.vscode/*.temp
+*.code-workspace
+
+*.tmp
+*.temp
+*.log
