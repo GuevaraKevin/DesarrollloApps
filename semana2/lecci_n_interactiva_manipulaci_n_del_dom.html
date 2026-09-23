@@ -1,0 +1,84 @@
+from pathlib import Path
+
+html = """<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Ejercicios DOM</title>
+    <style>
+        .completada {
+            background-color: lightgreen;
+            text-decoration: line-through;
+        }
+
+        li {
+            margin: 8px 0;
+            padding: 5px;
+        }
+
+        button {
+            margin-left: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Ejercicio 1</h2>
+    <p>Haz clic en una tarea para marcarla como completada.</p>
+
+    <ul id="lista1">
+        <li>Tarea 1</li>
+        <li>Tarea 2</li>
+        <li>Tarea 3</li>
+    </ul>
+
+    <p>Total de tareas: <span id="total">0</span></p>
+
+
+    <h2>Ejercicio 2</h2>
+
+    <input type="text" id="inputTarea" placeholder="Escribe una tarea">
+    <button id="agregar">Agregar</button>
+
+    <ul id="lista2"></ul>
+
+
+    <script>
+        // EJERCICIO 1
+        let lista1 = document.getElementById("lista1");
+        let total = document.getElementById("total");
+
+        total.innerText = lista1.children.length;
+
+        lista1.onclick = function(evento) {
+            if (evento.target.tagName == "LI") {
+                evento.target.classList.toggle("completada");
+            }
+        };
+
+
+        // EJERCICIO 2
+        let input = document.getElementById("inputTarea");
+        let boton = document.getElementById("agregar");
+        let lista2 = document.getElementById("lista2");
+
+        boton.onclick = function() {
+            let tarea = document.createElement("li");
+            tarea.innerText = input.value;
+
+            let eliminar = document.createElement("button");
+            eliminar.innerText = "Eliminar";
+
+            eliminar.onclick = function() {
+                tarea.remove();
+            };
+
+            tarea.appendChild(eliminar);
+            lista2.appendChild(tarea);
+
+            input.value = "";
+        };
+    </script>
+
+</body>
+</html>
